@@ -2,9 +2,7 @@ require 'minitest/autorun'
 require 'minitest/pride'
 require_relative '../lib/item_repository'
 
-
 class ItemRepositoryTest < Minitest::Test
-
   def test_pull_csv
     ir = ItemRepository.new('./test/fixtures/item_fixture.csv')
 
@@ -18,7 +16,7 @@ class ItemRepositoryTest < Minitest::Test
 
   def test_all
     ir = ItemRepository.new('./test/fixtures/item_fixture.csv')
-    assert_equal 247, ir.all.count
+    assert_equal 289, ir.all.count
   end
 
   def test_find_by_id
@@ -49,16 +47,15 @@ class ItemRepositoryTest < Minitest::Test
 
   def test_find_all_by_price_in_range
     ir = ItemRepository.new('./test/fixtures/item_fixture.csv')
-    assert_equal 212, ir.find_all_by_price_in_range(1.00..200.00).count
+    assert_equal 243, ir.find_all_by_price_in_range(1.00..200.00).count
     assert_equal 12, ir.find_all_by_price_in_range(10.00..20.00)[0].unit_price
     assert_equal [], ir.find_all_by_price_in_range(1.01..1.50)
   end
 
   def test_find_all_by_merchant
     ir = ItemRepository.new('./test/fixtures/item_fixture.csv')
-    assert_equal 5, ir.find_all_by_merchant_id(12334195).count
-    assert_equal "Course contre la montre", ir.find_all_by_merchant_id(12334195)[0].name
+    assert_equal 20, ir.find_all_by_merchant_id(12334195).count
+    assert_equal "Cache cache à la plage", ir.find_all_by_merchant_id(12334195)[0].name
     assert_equal [], ir.find_all_by_merchant_id(100)
   end
-
 end

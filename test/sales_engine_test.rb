@@ -28,65 +28,65 @@ class SalesEngineTest < Minitest::Test
   end
 
   def test_item_merchant
-    item = se.items.find_by_id(263412361)
-    assert_equal '2MAKERSMARKET', item.merchant.name
+    item = se.items.find_by_id(263500126)
+    assert_equal "FlavienCouche", item.merchant.name
   end
 
-  # def test_find_merchant_invoices
-  #   merchant = se.merchants.find_by_id(12334371)
-  #   assert_equal 11, merchant.invoices.count
-  #   assert_equal 156, merchant.invoices.first.id
-  # end
-  #
-  # def test_find_invoice_merchant
-  #   invoice = se.invoices.find_by_id(268)
-  #   assert_equal 'Woodenpenshop', invoice.merchant.name
-  # end
-  #
-  # def test_invoice_invoice_items
-  #   invoice = se.invoices.find_by_id(2)
-  #   assert_equal 4, invoice.invoice_items.count
-  #   assert_instance_of InvoiceItem, invoice.invoice_items[0]
-  # end
-  #
-  # def test_invoice_items
-  #   invoice = se.invoices.find_by_id(2)
-  #   assert_equal 4, invoice.items.count
-  #   assert_instance_of Item, invoice.items[0]
-  # end
-  #
-  # def test_invoice_transactions
-  #   invoice = se.invoices.find_by_id(2)
-  #   assert_equal 2, invoice.transactions.count
-  #   assert_instance_of Transaction, invoice.transactions[0]
-  # end
-  #
-  # def test_invoice_customer
-  #   invoice = se.invoices.find_by_id(2)
-  #   assert_equal 1, invoice.customer.id
-  #   assert_instance_of Customer, invoice.customer
-  # end
-  #
-  # def test_transactions_invoice
-  #   transaction = se.transactions.find_by_id(203)
-  #   assert_equal 144, transaction.invoice.id
-  #   assert_instance_of Invoice, transaction.invoice
-  # end
-  #
-  # def test_merchant_customers
-  #   merchant = se.merchants.find_by_id(12334371)
-  #   assert_equal 11, merchant.customers.length
-  #   assert_equal 31, merchant.customers.first.id
-  # end
-  #
-  # def test_is_paid_in_full?
-  #   invoice = se.invoices.find_by_id(2)
-  #   assert invoice.is_paid_in_full?
-  # end
-  #
-  # def test_invoice_total
-  #   invoice = se.invoices.find_by_id(2)
-  #   assert_equal 400, invoice.total
-  # end
+  def test_find_merchant_invoices
+    merchant = se.merchants.find_by_id(12334141)
+    assert_equal 18, merchant.invoices.count
+    assert_equal 641, merchant.invoices.first.id
+  end
+
+  def test_find_invoice_merchant
+    invoice = se.invoices.find_by_id(819)
+    assert_equal 'jejum', invoice.merchant.name
+  end
+
+  def test_invoice_invoice_items
+    invoice = se.invoices.find_by_id(641)
+    assert_equal 2, invoice.invoice_items.count
+    assert_instance_of InvoiceItem, invoice.invoice_items[0]
+  end
+
+  def test_invoice_items
+    invoice = se.invoices.find_by_id(1012)
+    assert_equal 2, invoice.items.count
+    assert_instance_of Item, invoice.items[0]
+  end
+
+  def test_invoice_transactions
+    invoice = se.invoices.find_by_id(4966)
+    assert_equal 3, invoice.transactions.count
+    assert_instance_of Transaction, invoice.transactions[0]
+  end
+
+  def test_invoice_customer
+    invoice = se.invoices.find_by_id(4966)
+    assert_equal 996, invoice.customer.id
+    assert_instance_of Customer, invoice.customer
+  end
+
+  def test_transactions_invoice
+    transaction = se.transactions.find_by_id(1175)
+    assert_equal 3983, transaction.invoice.id
+    assert_instance_of Invoice, transaction.invoice
+  end
+
+  def test_merchant_customers
+    merchant = se.merchants.find_by_id(12334123)
+    assert_equal 10, merchant.customers.length
+    assert_equal 34, merchant.customers.first.id
+  end
+
+  def test_is_paid_in_full?
+    invoice = se.invoices.find_by_id(4966)
+    assert invoice.is_paid_in_full?
+  end
+
+  def test_invoice_total
+    invoice = se.invoices.find_by_id(1058)
+    assert_equal 4403.94, invoice.total
+  end
 
 end

@@ -54,5 +54,3 @@ class Merchant
     end
   end
 end
-
-# m = Merchant.new({:id => 5, :name => "Turing School"})

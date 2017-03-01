@@ -29,45 +29,44 @@ class SalesAnalystTest < Minitest::Test
   # end
   #
   def test_average_items_per_merchant
-    assert_equal 1.98, sa.average_items_per_merchant
+    assert_equal 57.8, sa.average_items_per_merchant
   end
 
   def test_average_items_per_merchant_standard_deviation
-    assert_equal 1.88, sa.average_items_per_merchant_standard_deviation
+    assert_equal 54.68, sa.average_items_per_merchant_standard_deviation
   end
 
   def test_merchants_with_high_item_count
-    assert_equal 4, sa.merchants_with_high_item_count.count
-    assert_instance_of Merchant, sa.merchants_with_high_item_count.first
+    assert_equal 0, sa.merchants_with_high_item_count.count
   end
 
   def test_average_item_price_for_merchant
-    assert_equal (BigDecimal.new(5050)/100), sa.average_item_price_for_merchant(12334365)
+    assert_equal (BigDecimal.new(15000)/100), sa.average_item_price_for_merchant(12334113)
   end
 
   def test_average_average_price_per_merchant
-    assert_equal (BigDecimal.new(15525)/100), sa.average_average_price_per_merchant
+    assert_equal (BigDecimal.new(15240)/100), sa.average_average_price_per_merchant
   end
 
   def test_average_item_price
-    assert_equal (BigDecimal.new(16162)/100), sa.average_item_price
+    assert_equal (BigDecimal.new(58851)/100), sa.average_item_price
   end
 
   def test_average_item_price_standard_deviation
-    assert_equal 368.77, sa.average_item_price_standard_deviation
+    assert_equal 6068.19, sa.average_item_price_standard_deviation
   end
 
   def test_golden_items
-    assert_equal 1, sa.golden_items.length
+    assert_equal 2, sa.golden_items.length
     assert_instance_of Item, sa.golden_items.first
   end
 
   def test_average_invoices_per_merchant
-    assert_equal 11.02, sa.average_invoices_per_merchant
+    assert_equal 12.8, sa.average_invoices_per_merchant
   end
 
   def test_average_invoices_per_merchant_standard_deviation
-    assert_equal 3.63, sa.average_invoices_per_merchant_standard_deviation
+    assert_equal 3.35, sa.average_invoices_per_merchant_standard_deviation
   end
 
   def test_top_merchants_by_invoice_count
@@ -75,8 +74,7 @@ class SalesAnalystTest < Minitest::Test
   end
 
   def test_bottom_merchants_by_invoice_count
-    assert_equal 1, sa.bottom_merchants_by_invoice_count.count
-    assert_instance_of Merchant, sa.bottom_merchants_by_invoice_count.first
+    assert_equal 0, sa.bottom_merchants_by_invoice_count.count
   end
 
   def test_top_days_by_invoice_count
@@ -84,14 +82,14 @@ class SalesAnalystTest < Minitest::Test
   end
 
   def test_invoice_status
-    assert_equal 29.11, sa.invoice_status(:pending)
-    assert_equal 55.7, sa.invoice_status(:shipped)
-    assert_equal 15.19, sa.invoice_status(:returned)
+    assert_equal 39.06, sa.invoice_status(:pending)
+    assert_equal 46.88, sa.invoice_status(:shipped)
+    assert_equal 14.06, sa.invoice_status(:returned)
   end
 
   def test_total_revenue_by_date
-    date = Time.parse("2015-03-13")
-    assert_equal 4774.75, sa.total_revenue_by_date(date)
+    date = Time.parse("2000-06-19")
+    assert_equal 18698.58, sa.total_revenue_by_date(date)
   end
 
   def test_top_revenue_earners
@@ -99,6 +97,30 @@ class SalesAnalystTest < Minitest::Test
   end
 
   def test_merchants_with_pending_invoices
-    sa.merchants_with_pending_invoices
+    assert_equal 5, sa.merchants_with_pending_invoices.count
+    assert_instance_of Merchant, sa.merchants_with_pending_invoices[0]
   end
+
+  def test_merchants_with_only_one_item
+    assert_equal 2, sa.merchants_with_only_one_item.count
+    assert_instance_of Merchant, sa.merchants_with_only_one_item[0]
+  end
+
+  def test_merchants_with_only_one_item_registered_in_month
+    assert_equal 1, sa.merchants_with_only_one_item_registered_in_month('June').count
+  end
+
+  def test_revenue_by_merchant
+    assert_equal 64725.4, sa.revenue_by_merchant(12334123)
+  end
+
+  def test_most_sold_item_for_merchant
+    assert_equal 2, sa.most_sold_item_for_merchant(12334123).count
+    assert_instance_of Item , sa.most_sold_item_for_merchant(12334123)[1]
+  end
+
+  def test_best_item_for_merchant
+    assert_equal 263553486, sa.best_item_for_merchant(12334141).id
+  end
+
 end

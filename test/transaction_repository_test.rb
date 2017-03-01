@@ -14,7 +14,7 @@ attr_reader :tr
   end
 
   def test_all
-    assert_equal 63, tr.all.count
+    assert_equal 64, tr.all.count
   end
 
   def test_find_by_id

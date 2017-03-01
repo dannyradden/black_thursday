@@ -69,7 +69,7 @@ class SalesAnalyst
   end
 
   def average_item_price_for_merchant(merchant_id,
-                                    items = merchant_items(merchant_id))
+                                      items = merchant_items(merchant_id))
     find_average(item_prices_array(items).inject(:+), items.count).round(2)
   end
 
