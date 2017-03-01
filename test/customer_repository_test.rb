@@ -15,23 +15,23 @@ class CustomerRepositoryTest < Minitest::Test
   end
 
   def test_all
-    assert_equal 109, cr.all.count
+    assert_equal 62, cr.all.count
   end
 
   def test_find_by_id
-    assert_equal 3, cr.find_by_id(3).id
+    assert_equal 14, cr.find_by_id(14).id
     assert_nil cr.find_by_id(101)
   end
 
   def test_find_all_by_first_name
-    assert_equal 1, cr.find_all_by_first_name("Joey").count
-    assert_equal 3, cr.find_all_by_first_name("Lisa").count
-    assert_equal 61, cr.find_all_by_first_name("Lisa")[0].id
+    assert_equal 1, cr.find_all_by_first_name("Broo").count
+    assert_equal 2, cr.find_all_by_first_name("san").count
+    assert_equal 125, cr.find_all_by_first_name("San")[0].id
   end
 
   def test_find_all_by_last_name
-    assert_equal 4, cr.find_all_by_last_name("man").count
-    assert_equal 4, cr.find_all_by_last_name("Dick").count
-    assert_equal 61, cr.find_all_by_last_name("Leannon")[0].id
+    assert_equal 1, cr.find_all_by_last_name("man").count
+    assert_equal 1, cr.find_all_by_last_name("von").count
+    assert_equal 370, cr.find_all_by_last_name("von")[0].id
   end
 end

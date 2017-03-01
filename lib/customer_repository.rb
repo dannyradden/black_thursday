@@ -21,7 +21,7 @@ class CustomerRepository
   end
 
   def parse_csv
-    @contents.each do |row| customer_array << Customer.new({
+    contents.each do |row| customer_array << Customer.new({
       :id         => row[:id].to_i,
       :first_name => row[:first_name],
       :last_name  => row[:last_name],
@@ -54,6 +54,6 @@ class CustomerRepository
   end
 
   def inspect
-    @customers.nil? ? nil: "#<#{self.class} #{@customers.size} rows>"
+    "#<#{self.class} #{@customer_array.size} rows>"
   end
 end

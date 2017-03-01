@@ -20,7 +20,7 @@ class MerchantRepository
   end
 
   def parse_csv
-    @contents.each do |row|
+    contents.each do |row|
       merchants_array << Merchant.new({
         :id   => row[:id].to_i,
         :name => row[:name],
@@ -53,6 +53,6 @@ class MerchantRepository
   end
 
   def inspect
-    "#<#{self.class} #{@merchants.size} rows>"
+    "#<#{self.class} #{@merchants_array.size} rows>"
   end
 end

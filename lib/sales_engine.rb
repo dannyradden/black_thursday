@@ -7,7 +7,8 @@ require_relative './customer_repository'
 
 class SalesEngine
 
-  attr_accessor :items, :merchants, :invoices, :invoice_items, :transactions, :customers
+  attr_accessor :items, :merchants, :invoices, :invoice_items, :transactions,
+                :customers
 
   def initialize(hash)
     unless hash[:items].nil?
@@ -35,14 +36,14 @@ class SalesEngine
   end
 end
 
-se = SalesEngine.from_csv({
-  :items => "./test/fixtures/item_fixture.csv",
-  :merchants => "./test/fixtures/merchant_fixture.csv",
-  :invoices => "./test/fixtures/invoice_fixture.csv",
-  :invoice_items => "./test/fixtures/invoice_items_fixture.csv",
-  :transactions => "./test/fixtures/transaction_fixture.csv",
-  :customers => "./test/fixtures/customer_fixture.csv"
-  })
-
-require "pry"; binding.pry
-p ''
+# se = SalesEngine.from_csv({
+#   :items => "./test/fixtures/item_fixture.csv",
+#   :merchants => "./test/fixtures/merchant_fixture.csv",
+#   :invoices => "./test/fixtures/invoice_fixture.csv",
+#   :invoice_items => "./test/fixtures/invoice_item_fixture.csv",
+#   :transactions => "./test/fixtures/transaction_fixture.csv",
+#   :customers => "./test/fixtures/customer_fixture.csv"
+#   })
+#
+# require "pry"; binding.pry
+# p ''

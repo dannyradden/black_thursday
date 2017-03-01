@@ -19,7 +19,7 @@ class ItemRepository
   end
 
   def parse_csv
-    @contents.each do |row|
+    contents.each do |row|
       items_array << Item.new({
         :name        => row[:name],
         :id          => row[:id].to_i,
@@ -73,6 +73,6 @@ class ItemRepository
   end
 
   def inspect
-    "#<#{self.class} #{@merchants.size} rows>"
+    "#<#{self.class} #{@items_array.size} rows>"
   end
 end

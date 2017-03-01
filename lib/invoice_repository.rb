@@ -20,7 +20,7 @@ class InvoiceRepository
   end
 
   def parse_csv
-    @contents.each do |row|
+    contents.each do |row|
       invoices_array << Invoice.new({
       :id          => row[:id].to_i,
       :customer_id => row[:customer_id].to_i,
@@ -67,6 +67,6 @@ class InvoiceRepository
   end
 
   def inspect
-    "#<#{self.class} #{@merchants.size} rows>"
+    "#<#{self.class} #{@invoices_array.size} rows>"
   end
 end

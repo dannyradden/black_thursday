@@ -16,7 +16,8 @@ class TransactionRepository
   end
 
   def pull_csv
-    @contents = CSV.open @transactions_path, headers: true, header_converters: :symbol
+    @contents = CSV.open @transactions_path, headers: true,
+                header_converters: :symbol
   end
 
   def parse_csv
@@ -62,6 +63,6 @@ class TransactionRepository
   end
 
   def inspect
-    @merchants.nil? ? nil: "#<#{self.class} #{@merchants.size} rows>"
+    "#<#{self.class} #{@transactions_array.size} rows>"
   end
 end
