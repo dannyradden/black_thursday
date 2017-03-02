@@ -1,0 +1,37 @@
+{
+  "Unit Tests": {
+    "coverage": {
+      "/Users/dradden/turing/1module/black_thursday/lib/customer.rb": [
+        1,
+        1,
+        null,
+        1,
+        5,
+        5,
+        null,
+        null,
+        1,
+        1,
+        null,
+        null,
+        1,
+        1,
+        null,
+        null,
+        1,
+        1,
+        null,
+        null,
+        1,
+        1,
+        null,
+        null,
+        1,
+        1,
+        null,
+        null
+      ]
+    },
+    "timestamp": 1488412911
+  }
+}

@@ -1,3 +1,6 @@
+require 'simplecov'
+SimpleCov.start
+
 require 'minitest/autorun'
 require 'minitest/pride'
 require_relative '../lib/sales_engine'
@@ -23,7 +26,7 @@ class SalesEngineTest < Minitest::Test
 
   def test_merchant_items
     merchant = se.merchants.find_by_id(12334123)
-    assert_equal 3, merchant.items.count
+    assert_equal 25, merchant.items.count
     assert_equal "Adidas Breitner Super Fußballschuh", merchant.items.first.name
   end
 
